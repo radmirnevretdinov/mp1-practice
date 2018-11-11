@@ -7,17 +7,7 @@ void main()
 	scanf("%f%f%f", &x, &y, &R);
 	printf("Vvedite koordinati i radius vtorogo kruga   ");
 	scanf("%f%f%f", &a, &b, &r);
-	if (r > R)
-	{
-		max = r;
-		min = R;
-	}
-	else
-	{
-		max = R;
-		min = r;
-
-	}
+	
 	if (R == 0)
 	{
 		printf("radius pervogo kruga ne vveden  ");
@@ -28,8 +18,17 @@ void main()
 		printf("radius vtorogo kruga ne vveden   ");
 		return;
 	}
-
-	if (sqrt((abs(x - a))*(abs(x - a)) + ((abs(y - b))*(abs(y - b))))>(R + r))
+	if (r > R)
+	{
+		max = r;
+		min = R;
+	}
+	if (R > r)
+	{
+		max = R;
+		min = r;
+	}
+	if (sqrt((x - a)*(x - a) + (y - b)*(y - b))>(R + r))
 	{
 		printf("Krugi ne peresekautsya   ");
 		return;
@@ -39,7 +38,7 @@ void main()
 		printf("krugi sovpadayut   ");
 		return;
 	}
-	if (sqrt((abs(x - a))*(abs(x - a)) + ((abs(y - b))*(abs(y - b)))) <= (abs(max - (min + min)))&&(r != R))
+	if ((sqrt((x - a)*(x - a) + (y - b)*(y - b))) <= (abs(max - (min + min)))&&(r != R))
 	{
 		if (max==R)
 		{
@@ -52,12 +51,12 @@ void main()
 		return;
 	}
 
-	if (sqrt((abs(x - a))*(abs(x - a)) + ((abs(y - b))*(abs(y - b)))) == (r + R))
+	if ((sqrt((x - a)*(x - a) + (y - b)*(y - b))) == (r + R))
 	{
 		printf("peresekayutsa v odnoy tochke   ");
 		return;
 	}
-	if ((sqrt((abs(x - a))*(abs(x - a)) + ((abs(y - b))*(abs(y - b))))-(min))==(max-(min+min))&&(max != min))
+	if ((sqrt((x - a)*(x - a) + (y - b)*(y - b)) -(min))==(max-(min+min))&&(max != min))
 	{
 		if (max==R)
 		{
